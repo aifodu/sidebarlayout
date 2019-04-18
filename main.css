@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+/* This is not really necessary */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.wrapper {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  /*    This baby here is what does the magic. You name the areas of the 
+  grid and then refer to names areas as in lines 45, 50 and 55  */
+  grid-template-areas:
+    "side head head"
+    "side cont cont"
+    "side cont cont";
+  /*    The first row should be 80px high and the 
+  second row should occupy as much as remains */
+  grid-template-rows: 80px 1fr;
+
+  /*    The first column (your sidebar) should take 20% in width 
+  and the second column should occupy as much as remains */
+  grid-template-columns: 20% 1fr;
+}
+
+/* This is also not really necessary */
+.wrapper > header,
+.wrapper > nav,
+.wrapper > main {
+  display: flex;
+  font-size: 1.5em;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.wrapper > header {
+  grid-area: head;
+  background-color: #8ca0ff;
+}
+
+.wrapper > nav {
+  grid-area: side;
+  background-color: #ffa08c;
+}
+
+.wrapper > main {
+  grid-area: cont;
+  background-color: #ffff64;
+}
+
+/* READING */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas */
